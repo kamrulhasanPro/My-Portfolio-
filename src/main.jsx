@@ -6,6 +6,12 @@ import Home from "./Page/Home";
 import { createBrowserRouter } from "react-router";
 import ProjectDetails from "./sections/Project Section/ProjectDetails";
 import HomeLayout from "./Layout/HomeLayout";
+import DashboardLayout from "./Layout/DashboardLayout";
+import Overview from "./Page/dashboard/Overview";
+import HeroSection from "./Page/dashboard/HeroSection";
+import AboutSection from "./Page/dashboard/AboutSection";
+import ProjectSection from "./Page/dashboard/ProjectSection";
+import SkillSection from "./Page/dashboard/SkillSection";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +25,32 @@ const router = createBrowserRouter([
       {
         path: "/project/:id",
         Component: ProjectDetails,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    Component: DashboardLayout,
+    children: [
+      {
+        index: true,
+        Component: Overview,
+      },
+      {
+        path: "hero",
+        Component: HeroSection,
+      },
+      {
+        path: "about",
+        Component: AboutSection,
+      },
+      {
+        path: "project",
+        Component: ProjectSection,
+      },
+      {
+        path: "skill",
+        Component: SkillSection,
       },
     ],
   },
